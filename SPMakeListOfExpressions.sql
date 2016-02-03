@@ -35,9 +35,9 @@ begin try
       set @f = CHARINDEX(@delm, @str, @i)
 
       if @f != 0
-        set @list += QUOTENAME(SUBSTRING(@str, @i, @f - @i), '''') + ','
+        set @list += QUOTENAME(LTRIM(RTRIM(SUBSTRING(@str, @i, @f - @i))), '''') + ','
       else
-        set @list += QUOTENAME(SUBSTRING(@str, @i, LEN(@str)), '''')
+        set @list += QUOTENAME(LTRIM(RTRIM(SUBSTRING(@str, @i, LEN(@str)))), '''')
 
       set @i = @f + 1
     end
@@ -45,7 +45,7 @@ begin try
   else
   begin
     /* Ya que no hay suficiente argumentos separados por delimitador */
-    set @list += QUOTENAME(@str, '''')
+    set @list += QUOTENAME(LTRIM(RTRIM(@str)), '''')
   end
 end try
 begin catch
