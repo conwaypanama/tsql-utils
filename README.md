@@ -1,23 +1,44 @@
-# SPMakeListOfExpressions
+## SPFullDatabaseBackup
+> Crea un respaldo completo (no-incremental) de base de dato
+
+#### SPFullDatabaseBackup @DbName, @Path
+##### @DbName
+*Requerido* <br />
+Tipo: `nvarchar(max)`
+
+Nombre canonico de base de dato
+
+##### @Path
+*Requerido* <br />
+Tipo: `nvarchar(max)`
+
+Directorio *local del servidor* donde sera almacenado el respaldo 
+
+### Uso
+***Nota: Recomendamos crear el SP dentro de la DB master asi, puede respaldar multiples UDF-DB*** 
+
+```sql
+EXEC SPFullDatabaseBackup N'ArrozConPolloDB', 'P:\'
+```
+
+## SPMakeListOfExpressions
 > Retorna una lista de valores, envuelva entre comillas simples, separados por coma
 
-
-## Definicion
-### SPMakeListOfExpressions @str, [@delm], @result = output  
-#### @str
+#### SPMakeListOfExpressions @str, [@delm], @result = output  
+##### @str
 *Requerido* <br />
 Tipo: `nvarchar(255)`
 
 Cada de caracteres a evaluar
 
-#### @delm
+##### @delm
 *Opcional* <br />
 Tipo: `char(1)` <br />
 Por defecto: `','`
 
 Caracter delimitador de cadena de caracteres
 
-#### output
+##### output
 *Requerido* <br />
 Tipo: `nvarchar(255) OUTPUT`
 
@@ -25,8 +46,7 @@ Variable que almacena el resultado devuelto de procedimiento almacenado. Paramet
 
 Para mas informacion sobre `OUTPUT` [ver documentacion](https://msdn.microsoft.com/en-us/library/ms187926.aspx).
 
-
-## Uso
+### Uso
 Mejor uso es con sentencias dinamicas.
 
 ```sql
