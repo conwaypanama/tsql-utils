@@ -12,7 +12,7 @@ Nombre canonico de base de dato
 *Requerido* <br />
 Tipo: `nvarchar(max)`
 
-Directorio *local del servidor* donde sera almacenado el respaldo 
+Directorio *local del servidor* donde sera almacenado el respaldo. *Por ahora* es necesario que el URI termine con trailing slash, `\`; Ejemplo: `X:\RootDir\`.
 
 ### Uso
 ***Nota: Recomendamos crear el SP dentro de la DB master asi, puede respaldar multiples UDF-DB*** 
