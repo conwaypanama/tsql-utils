@@ -90,11 +90,11 @@ Por defecto: `','`
 
 Carácter delimitador sirve como una __pista__. Tenga en cuenta que si `@delm` no se especifica, debe escribir `default` de todos modos.
 
-La documentacion [oficiales](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-function-transact-sql#examples).
+Documentacion [oficial](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-function-transact-sql#examples).
 
-```
-When a parameter of the function has a default value, the keyword DEFAULT must be specified when the function is called to retrieve the default value. This behavior is different from using parameters with default values in stored procedures in which omitting the parameter also implies the default value. However, the DEFAULT keyword is not required when invoking a scalar function by using the EXECUTE statement.
-```
+><strong>When a parameter of the function has a default value, the keyword DEFAULT must be specified when the function is called to retrieve the default value.
+> 
+>This behavior is different from using parameters with default values in stored procedures in which omitting the parameter also implies the default value. However, the DEFAULT keyword is not required when invoking a scalar function by using the EXECUTE statement.</strong>
 
 #### value
 Retorna: `column` <br/>
