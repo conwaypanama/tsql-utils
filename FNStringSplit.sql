@@ -21,8 +21,8 @@ BEGIN
   -- @next int Puntero al siguiente incidente coma
   DECLARE @ptr int, @next int
   SET @ptr = 1
-  SET @next = CHARINDEX(@delm, @newStr, @ptr)
-
+  SET @next = IIF(LEN(@newStr) = 1, 1, CHARINDEX(@delm, @newStr, @ptr))
+  
   WHILE @next != 0
   BEGIN
     SET @next = CHARINDEX(@delm, @newStr, @ptr)
