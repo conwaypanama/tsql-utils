@@ -1,4 +1,4 @@
-create procedure [dbo].[SPMakeListOfExpressions]
+create procedure SPSplitAndQuote
 @str nvarchar(255),
 @delm char(1) = ',',
 @result nvarchar(255) output
