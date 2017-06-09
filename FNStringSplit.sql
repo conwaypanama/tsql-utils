@@ -14,6 +14,8 @@ RETURNS @splitedTableResult TABLE
 AS
 BEGIN
   DECLARE @newStr nvarchar(max)
+  DECLARE @firstDelmIndex bigint
+  DECLARE @newStrLength bigint
   -- Eliminar los espacios en blanco
   -- Eliminar espacio en blanco innecesario entre delimitador
   SET @newStr = REPLACE(LTRIM(RTRIM(@str)), ' ', '')
@@ -21,7 +23,9 @@ BEGIN
   -- @next int Puntero al siguiente incidente coma
   DECLARE @ptr int, @next int
   SET @ptr = 1
-  SET @next = IIF(LEN(@newStr) = 1, 1, CHARINDEX(@delm, @newStr, @ptr))
+  SET @firstDelmIndex = CHARINDEX(@delm, @newStr, @ptr)
+  SET @newStrLength = LEN(@newStr)
+  SET @next = IIF(@newStrLength > 0 AND @firstDelmIndex = 0, @newStrLength, @firstDelmIndex)
   
   WHILE @next != 0
   BEGIN
